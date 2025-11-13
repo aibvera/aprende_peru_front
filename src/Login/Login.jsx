@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import { login } from '../api/auth.js';
 
-function Login({ setCurrentUser }) {
+function Login({ setCurrentUser, setAccessToken }) {
   const navigate = useNavigate();
 
   // Navegación
@@ -27,6 +27,8 @@ function Login({ setCurrentUser }) {
       const data = await login(username, password);
       if (data.user) {
         setCurrentUser(data.user);
+        setAccessToken(data.accessToken);
+        localStorage.setItem("refreshToken", data.refreshToken);
         setLoginState(`✅ Bienvenido, ${data.user.nombre}.`);
       } else {
         setLoginState('❌ Usuario o contraseña inválido');

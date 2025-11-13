@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "./config";
+import { API_BASE_URL } from "./config.js";
 
 // Función de login
 export async function login(username, password) {
@@ -28,6 +28,24 @@ export async function register(username, password, first_name, last_name, email)
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password, first_name, last_name, email }),
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error en auth.js/register:", error);
+    throw error;
+  }
+}
+
+// Función de refrescado de accessToken
+export async function refreshAccessToken(refreshToken) {
+  try {
+    const response = await fetch(`${API_BASE_URL}/seguridad/refresh_token`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        'Authorization': `Bearer ${refreshToken}`
+      },
     });
     const data = await response.json();
     return data;

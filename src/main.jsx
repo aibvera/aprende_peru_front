@@ -14,14 +14,15 @@ function App() {
 
   // Estado del usuario logeado (inicialmente null)
   const [currentUser, setCurrentUser] = useState(null);
+  const [accessToken, setAccessToken] = useState(null);
 
   return (
     <StrictMode>
       <BrowserRouter>
-        <Header currentUser={currentUser} setCurrentUser={setCurrentUser} />
+        <Header currentUser={currentUser} setCurrentUser={setCurrentUser} setAccessToken={setAccessToken} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login setCurrentUser={setCurrentUser} />} />
+          <Route path="/login" element={<Login setCurrentUser={setCurrentUser} setAccessToken={setAccessToken} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/cursos" element={<AllCourses />} />
           <Route path="/carrito" element={<Cart currentUser={currentUser} />} />
