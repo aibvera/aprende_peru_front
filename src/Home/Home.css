@@ -1,4 +1,4 @@
-.Cuerpo {
+/* .Cuerpo {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -36,14 +36,88 @@
 
   .contenedor_cursos_home {
     /*grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));*/
-    grid-template-columns: repeat(2, 1fr);
+/* grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
-}
+} */
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .contenedor_cursos_home {
     grid-template-columns: 1fr;
 
   }
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&display=swap');
+
+.Cuerpo {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 3rem 2rem;
+  background-color: var(--main-bg);
+}
+
+.Cuerpo section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.Cuerpo h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  letter-spacing: -1px;
+  font-family: "Inter", sans-serif;
+}
+
+.contenedor_cursos_home {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 992px) {
+  .Cuerpo {
+    padding: 2rem 1rem;
+    gap: 2.5rem;
+  }
+
+  .Cuerpo h3 {
+    font-size: 1.8rem;
+  }
+
+  .contenedor_cursos_home {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .Cuerpo {
+    padding: 1.5rem 1rem;
+  }
+
+  .Cuerpo h3 {
+    font-size: 1.5rem;
+  }
+
+  .contenedor_cursos_home {
+    grid-template-columns: 1fr;
+  }
+}
+
+.titulo-seccion {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.emoji-titulo {
+  font-size: 2rem;
 }
