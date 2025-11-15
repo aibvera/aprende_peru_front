@@ -42,7 +42,7 @@ jobs:
           name: build-output
 
       - name: Desplegar en Firebase Hosting
-        uses: w9jds/firebase-action@v2.5.0
+        uses: w9jds/firebase-action@v3
         with:
           args: deploy --only hosting
           project_id: aprende-peru-app2025

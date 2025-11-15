@@ -35,7 +35,7 @@ function Header({ currentUser, setCurrentUser, setAccessToken }) {
         <div className="auth-buttons" id="auth-buttons">
           {currentUser ? (
             <>
-              <p className='poppins-regular'>Bienvenido, {currentUser.nombre}.</p>
+              <p className='poppins-regular'>Adióós, {currentUser.nombre}.</p>
             </>
           ) : (
             <>
