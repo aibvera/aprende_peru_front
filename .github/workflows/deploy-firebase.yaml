@@ -43,7 +43,7 @@ jobs:
           path: .
 
       - name: Desplegar en Firebase Hosting
-        uses: w9jds/firebase-action@v2.3.0
+        uses: w9jds/firebase-action@master
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         with:
