@@ -1,0 +1,49 @@
+name: Despliegue Automático
+
+on:
+  push:
+    branches:
+      - main # O la rama principal usada
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Construir aplicación
+        run: npm run build
+
+      - name: Subir artefacto de build
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: |
+            dist
+            firebase.json
+
+  deploy-firebase:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Descargar artefacto de build
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+
+      - name: Desplegar en Firebase Hosting
+        uses: w9jds/firebase-action@v2.4.0
+        with:
+          args: deploy --only hosting
+          project_id: aprende-peru-app2025
+          firebaseToken: ${{ secrets.FIREBASE_TOKEN }}
