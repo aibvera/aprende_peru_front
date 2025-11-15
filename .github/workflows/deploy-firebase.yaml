@@ -50,7 +50,7 @@ jobs:
           
       # Usamos la versión principal estable (`v2`)
       - name: Desplegar en Firebase Hosting
-        uses: w9jds/firebase-action@v2 
+        uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
           project_id: aprende-peru-app2025
