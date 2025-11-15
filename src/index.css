@@ -6,7 +6,8 @@
 
   --header-height: 10vh;
   --footer-height: 5vh;
-  --main-bg: white;
+  /* --main-bg: #f0f4f8; */
+  --main-bg: #e9ecef;
   --border-color: lightgray;
   --container-bg-color: #f4f4f4;
   --primary-color: #007bff;

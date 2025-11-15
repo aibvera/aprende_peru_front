@@ -11,7 +11,10 @@ function Home() {
     <main className="Cuerpo">
       {/* Sección Cursos más solicitados */}
       <section>
-        <h3>Cursos más solicitados 🔥</h3>
+        <div className="titulo-seccion">
+          <h3>Cursos más solicitados</h3>
+          <span className="emoji-titulo">🔥</span>
+        </div>
         <div className="contenedor_cursos_home">
           {cursosDestacados.map(curso => (
             <CourseCard key={curso.id} curso={curso} />
@@ -21,7 +24,10 @@ function Home() {
 
       {/* Sección Nuevos cursos */}
       <section>
-        <h3>Nuevos cursos ✨</h3>
+        <div className="titulo-seccion">
+          <h3>Nuevos cursos</h3>
+          <span className="emoji-titulo">✨</span>
+        </div>
         <div className="contenedor_cursos_home">
           {cursosNuevos.map(curso => (
             <CourseCard key={curso.id} curso={curso} />
