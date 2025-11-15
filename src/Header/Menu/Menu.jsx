@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import './Menu.css';
 
-function Menu({ isOpen, onClose, currentUser, setCurrentUser }) {
+function Menu({ isOpen, onClose, currentUser, setCurrentUser, setAccessToken }) {
   const navigate = useNavigate();
 
   // Navegación
@@ -28,6 +28,8 @@ function Menu({ isOpen, onClose, currentUser, setCurrentUser }) {
   const handleLogout = (e) => {
     e.preventDefault();
     setCurrentUser(null);
+    setAccessToken(null);
+    localStorage.removeItem("refreshToken");
     goToLogin();
     onClose();
   };

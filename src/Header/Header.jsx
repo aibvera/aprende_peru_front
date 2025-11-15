@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Header.css'
 import Menu from './Menu/Menu.jsx'
 
-function Header({ currentUser, setCurrentUser }) {
+function Header({ currentUser, setCurrentUser, setAccessToken }) {
 
   // Navegación
   const navigate = useNavigate();
@@ -46,7 +46,13 @@ function Header({ currentUser, setCurrentUser }) {
         </div>
       </nav>
 
-      <Menu isOpen={menuVisible} onClose={closeMenu} currentUser={currentUser} setCurrentUser={setCurrentUser} />
+      <Menu
+        isOpen={menuVisible}
+        onClose={closeMenu}
+        currentUser={currentUser}
+        setCurrentUser={setCurrentUser}
+        setAccessToken={setAccessToken}
+      />
 
     </header>
   )
